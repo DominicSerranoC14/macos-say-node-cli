@@ -4,10 +4,10 @@
 
 // To execute in dev mode run `NODE_ENV=dev node say.js`
 
-require('./exitProcess.js');
-const { mainMenuPrompt } = require('./prompts.js');
-const schemas = require('./schemas.js');
-const { errHandler, newLine } = require('./helpers.js');
+require('../js/exitProcess.js');
+const { mainMenuPrompt } = require('../js/prompts.js');
+const schemas = require('../js/schemas.js');
+const { errHandler, newLine } = require('../js/helpers.js');
 const { spawn } = require('child_process');
 const prompt = require('prompt');
 prompt.message = '';
