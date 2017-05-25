@@ -1,6 +1,6 @@
 'use strict';
 
-
+// Schemas used for promptjs validation
 const mainMenuSchema = {
 	name: 'Selection',
 	message: 'Sorry, numbers only',
