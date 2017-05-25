@@ -30,7 +30,6 @@ const mainMenuPrompt = () => {
 
 		// Using the users selection, execute a specified action
 		action[0].action();
-
   });
 };
 
@@ -38,7 +37,6 @@ const sayUserSelectionPrompt = () => {
 	newLine();
 
   prompt.get(sayUserSelectionSchema, (err, { Phrase }) => {
-
     if (err) {  return console.log(`Oops! Something went wrong: ${err}`) };
 
 		//Store current users selection for later use
@@ -48,8 +46,6 @@ const sayUserSelectionPrompt = () => {
 		// TODO: would be cool to print out text as say is saying it
     const s = spawn('say', [ Phrase ])
 			.on('close', (code) => mainMenuPrompt());
-
-
   });
 };
 
@@ -57,11 +53,9 @@ const voiceSelectionPrompt = () => {
 	newLine();
 
   prompt.get(voiceSelectionSchema, (err, result) => {
-
     if (err) {  return console.log(`Oops! Something went wrong: ${err}`) };
 
     console.log('voiceSelection', result);
-
   });
 };
 
