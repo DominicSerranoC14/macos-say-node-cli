@@ -2,6 +2,9 @@
   "name": "booky",
   "version": "1.0.0",
   "description": "",
+	"bin": {
+		"say-cli": "bin/cli.js"
+	},
   "main": "say.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

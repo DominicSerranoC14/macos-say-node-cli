@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 'use strict';
 
 // To execute in dev mode run `NODE_ENV=dev node say.js`
