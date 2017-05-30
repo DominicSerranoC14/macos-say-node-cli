@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const { errHandler, newLine } = require('./helpers.js');
+const { spawn } = require('child_process');
 
 // If user tries to exit while prompt open this will log the uncaught exception and restart program
 // I think this comes from the readline.js module / or prompt.js from an uncaughtException
@@ -24,6 +25,7 @@ process.on('uncaughtException', (err) => {
 process.on('exit', (code) => {
 	newLine();
 	console.log(`About to exit, goodbye!`);
+	const s = spawn('say', [ 'Good bye!' ]);
 
 	// Dev mode logging
 	if (process.env.NODE_ENV === 'dev') {

@@ -6,6 +6,9 @@ const actions = require('./actions.js');
 const store = require('./store.js');
 const { spawn } = require('child_process');
 const prompt = require('prompt');
+prompt.message = '';
+prompt.delimiter = ' ';
+
 
 const mainMenuPrompt = () => {
 	newLine();
