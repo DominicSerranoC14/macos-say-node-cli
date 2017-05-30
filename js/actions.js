@@ -1,7 +1,8 @@
 'use strict';
 
-const { spawn } = require('child_process');
+const store = require('./store.js');
 const { errHandler, newLine } = require('./helpers.js');
+const { spawn } = require('child_process');
 
 // Say the users typed selection
 const sayUserSelection = {
@@ -21,17 +22,22 @@ const displayVoiceList = {
 	  console.log('Select from one of the following voices.')
 	  newLine();
 
+		// TODO: move this to helper function so it is not executed each time
 	  spawn('say', ['-v', '?']).stdout.on('data', (data) => {
-	    data.toString().split('\n').forEach((each, i) => {
-	      if (!each) { return };
+			let voiceDesc;
+			data.toString().split('\n').forEach((each, i) => {
+	      if (!each) { return }; // Will skip empty options
+				voiceDesc = `${++i}: ${each}`;
+				store.voiceList.push(voiceDesc);
+				console.log(voiceDesc);
+	    })
+	  })
+		// Executing on spawn close to ensure store.voiceList is populated
+		.on('close', (code) => {
+			newLine();
 
-	      console.log(`${++i}: ${each}`)
-	    });
-
-	    newLine();
-
-	    require('./prompts').voiceSelectionPrompt();
-	  });
+			require('./prompts').voiceSelectionPrompt();
+		});
 	},
 	// Identifier used for user selction filter
 	key: 2,
