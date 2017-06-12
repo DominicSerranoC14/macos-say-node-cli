@@ -15,16 +15,16 @@ const mainMenuSchema = {
 };
 
 const sayUserSelectionSchema = {
-  name: 'phrase',
+  	name: 'phrase',
 	type: 'input',
 	message: 'What would you like to say? (press enter to submit)',
 	validate: (phrase) => (phrase.length > 140) ? "Please keep it short, I don't have all day!" : true,
 };
 
 const voiceSelectionSchema = {
-  name: 'choice',
+  	name: 'choice',
 	type: 'input',
-  message: 'Choose your voice',
+  	message: 'Choose your voice',
 	validate: (choice) => (!isNaN(Number(choice))) ? true : 'Please enter numbers only.',
 	filter: (choice) => Number(choice),
 };
